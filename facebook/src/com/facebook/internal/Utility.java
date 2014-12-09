@@ -460,8 +460,11 @@ public final class Utility {
     }
 
     public static void disconnectQuietly(URLConnection connection) {
-        if (connection instanceof HttpURLConnection) {
-            ((HttpURLConnection) connection).disconnect();
+        try {
+            if (connection instanceof HttpURLConnection) {
+                ((HttpURLConnection) connection).disconnect();
+            }
+        } catch (Exception e){
         }
     }
 
